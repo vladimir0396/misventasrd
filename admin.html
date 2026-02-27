@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Panel Admin - MisVentasRD</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -11,67 +13,66 @@
 <h2>Panel Administrador</h2>
 
 <div id="login">
-    <input type="password" id="clave" placeholder="Ingrese contraseña">
-    <button onclick="verificarClave()">Entrar</button>
+<input type="password" id="clave" placeholder="Ingrese contraseña">
+<button onclick="verificarClave()">Entrar</button>
 </div>
 
 <div id="panel" style="display:none;">
 
-    <h3>Configuración General</h3>
+<h3>Configuración General</h3>
 
-    <label>Costo General de Envío:</label>
-    <input type="number" id="nuevoEnvio">
-    <button onclick="guardarEnvio()">Guardar</button>
+<label>Costo Envío:</label>
+<input type="number" id="nuevoEnvio">
+<button onclick="guardarEnvio()">Guardar</button>
 
-    <hr>
+<hr>
 
-    <h3>Precios Productos</h3>
+<h3>Precios Productos</h3>
 
-    <label>Camisa Hombre:</label>
-    <input type="number" id="precioCamisa">
-    <br><br>
+<label>Camisa Hombre:</label>
+<input type="number" id="precioCamisa">
 
-    <label>Zapatos Mujer:</label>
-    <input type="number" id="precioZapatos">
-    <br><br>
+<br><br>
 
-    <button onclick="guardarPrecios()">Guardar Precios</button>
+<label>Zapatos Mujer:</label>
+<input type="number" id="precioZapatos">
+
+<br><br>
+
+<button onclick="guardarPrecios()">Guardar Precios</button>
 
 </div>
 
 <script>
-
-const contraseñaAdmin = "1234"; // 🔥 Cambia esto por la que tú quieras
+const contraseñaAdmin = "1234";
 
 function verificarClave() {
-    let clave = document.getElementById("clave").value;
+let clave = document.getElementById("clave").value;
 
-    if (clave === contraseñaAdmin) {
-        document.getElementById("login").style.display = "none";
-        document.getElementById("panel").style.display = "block";
-    } else {
-        alert("Contraseña incorrecta");
-    }
+if (clave === contraseñaAdmin) {
+document.getElementById("login").style.display = "none";
+document.getElementById("panel").style.display = "block";
+} else {
+alert("Contraseña incorrecta");
+}
 }
 
 function guardarEnvio() {
-    let nuevo = document.getElementById("nuevoEnvio").value;
-    localStorage.setItem("envioGeneral", nuevo);
-    alert("Costo de envío actualizado");
+let nuevo = document.getElementById("nuevoEnvio").value;
+localStorage.setItem("envioGeneral", nuevo);
+alert("Costo de envío actualizado");
 }
 
 function guardarPrecios() {
-    let camisa = document.getElementById("precioCamisa").value;
-    let zapatos = document.getElementById("precioZapatos").value;
+let camisa = document.getElementById("precioCamisa").value;
+let zapatos = document.getElementById("precioZapatos").value;
 
-    localStorage.setItem("precioCamisa", camisa);
-    localStorage.setItem("precioZapatos", zapatos);
+localStorage.setItem("precioCamisa", camisa);
+localStorage.setItem("precioZapatos", zapatos);
 
-    alert("Precios actualizados");
+alert("Precios actualizados");
 }
-
 </script>
 
 </body>
-
 </html>
