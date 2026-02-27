@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registro - MisVentasRD</title>
+<style>
+body{
+font-family: Arial, sans-serif;
+background:#f5f5f5;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+margin:0;
+}
+
+.container{
+background:white;
+padding:30px;
+border-radius:10px;
+width:350px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+h2{
+text-align:center;
+color:#004aad;
+}
+
+input{
+width:100%;
+padding:8px;
+margin:8px 0;
+}
+
+button{
+width:100%;
+padding:10px;
+background:#ffc107;
+border:none;
+cursor:pointer;
+font-weight:bold;
+}
+
+video, canvas{
+width:100%;
+border-radius:8px;
+margin-top:10px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2>Registro MisVentasRD</h2>
+
+<input type="text" placeholder="Nombre completo" required>
+<input type="email" placeholder="Correo electrónico" required>
+<input type="tel" placeholder="Teléfono" required>
+<input type="password" placeholder="Contraseña" required>
+
+<h3>Toma una Selfie</h3>
+<video id="video" autoplay></video>
+<button onclick="tomarFoto()">Capturar Selfie</button>
+<canvas id="canvas" style="display:none;"></canvas>
+
+<button onclick="registrar()">Registrarse</button>
+</div>
+
+<script>
+const video = document.getElementById('video');
+
+navigator.mediaDevices.getUserMedia({ video: true })
+.then(stream => {
+video.srcObject = stream;
+})
+.catch(error => {
+alert("No se pudo acceder a la cámara");
+});
+
+function tomarFoto(){
+const canvas = document.getElementById('canvas');
+const context = canvas.getContext('2d');
+
+canvas.width = video.videoWidth;
+canvas.height = video.videoHeight;
+
+context.drawImage(video, 0, 0, canvas.width, canvas.height);
+canvas.style.display = "block";
+}
+
+function registrar(){
+alert("Registro enviado. Tu cuenta será revisada.");
+}
+</script>
+
+</body>
+</html>

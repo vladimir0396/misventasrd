@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MisVentasRD - Compra y Vende Seguro</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h2>Productos</h2>
+
+<button onclick="agregarAlCarrito('Camisa Hombre', precioCamisa)">
+Agregar Camisa
+</button>
+
+<button onclick="agregarAlCarrito('Zapatos Mujer', precioZapatos)">
+Agregar Zapatos
+</button>
+
+<hr>
+
+<h2>Carrito</h2>
+<ul id="listaCarrito"></ul>
+
+<p>Subtotal: RD$<span id="subtotal">0</span></p>
+
+<p>Envío: RD$<span id="envioMostrado">0</span></p>
+
+<p>Total: RD$<span id="total">0</span></p>
+
+<hr>
+
+<h2>Datos del Cliente</h2>
+
+<input type="text" id="nombreCliente" placeholder="Nombre Completo">
+<br><br>
+
+<select id="ciudad">
+<option>La Vega</option>
+<option>Santiago</option>
+<option>Bonao</option>
+<option>Cotuí</option>
+<option>San Francisco de Macorís</option>
+</select>
+
+<br><br>
+
+<select id="metodoPago">
+<option>Contra Entrega</option>
+<option>Transferencia Banreservas</option>
+<option>Transferencia BHD</option>
+<option>Popular / Qik</option>
+</select>
+
+<br><br>
+
+<button onclick="enviarPedido()">Finalizar Pedido</button>
+
+<script src="carrito.js"></script>
+
+</body>
+</html>
